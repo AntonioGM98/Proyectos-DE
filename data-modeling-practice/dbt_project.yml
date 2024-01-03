@@ -1,0 +1,24 @@
+
+name: 'public'
+version: '1.0.0'
+config-version: 2
+
+profile: 'default'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+    - "target"
+    - "dbt_packages"
+
+models:
+  +schema: public
+  +persist_docs:
+      relation: true
+      columns: true
+  +materialized: "{{ env_var('DBT_MATERIALIZATION', 'ephemeral') }}"

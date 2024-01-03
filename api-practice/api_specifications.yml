@@ -1,0 +1,118 @@
+openapi: "3.0.2"
+info:
+  title: Flight and Passenger Management
+  version: "1.0"
+components:
+  schemas:
+    Flight: # no hay examples en las properties
+      type: object
+      properties:
+        id:
+          type: integer
+        company:
+          type: string
+          enum: [IB, I2, YW, LV]
+        flight_number:
+          type: integer
+        origin:
+          type: string
+        destination:
+          type: string
+        flight_date:
+          type: string
+          format: date
+    Passenger:
+      type: object
+      properties:
+        id:
+          type: integer
+        flight_id:
+          type: integer
+        status:
+          type: string
+          enum: [CHECKEDIN, BOARDED, CANCELLED]
+        name:
+          type: string
+        surname:
+          type: string
+        class:
+          type: string
+          enum: [FIRST, BUSSINESS, ECONOMY]
+
+paths:
+  /flights:
+    get:
+      summary: Obtiene los vuelos para 1 dia
+      parameters:
+        - name: flightDate
+          in: query
+          required: true
+          description: Fecha en formato YYYY-MM-DD
+          schema:
+            type: string
+            format: date
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              example:
+                - id: 24637
+                  company: IB
+                  flight_number: 6500
+                  origin: MAD
+                  destination: BCN
+                  flight_date: "2023-05-01"
+        "400":
+          description: Bad Request
+        "401":
+          description: Autorizacion no valida para el recurso
+        "404":
+          description: No se ha encontrado
+        # Faltaria algun que otro status code que pueda devolver, 400, 401, etc
+
+  # Aqui seria flights tambien
+  /flights/{flight_id}:
+    get:
+      summary: Consulta un vuelo por su id
+      parameters:
+        - name: flight_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              example:
+                id: 24637
+                company: IB
+                flight_number: 6500
+                origin: MAD
+                destination: BCN
+                flight_date: "2023-05-01"
+  /passengers:
+    post:
+      summary: Crear un nuevo pasajero
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Passenger" # Aqui bien usado el ref
+      responses:
+        "201": # Bien usado el status code aqui!
+          description: Creacion exitosa de pasajero
+    delete:
+      summary: Eliminar un pasajero
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204": # Bien usado el status code aqui!
+          description: Pasajero eliminado correctamente

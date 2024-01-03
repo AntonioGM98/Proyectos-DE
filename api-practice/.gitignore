@@ -1,0 +1,11 @@
+*.secrets
+**/__pycache__
+archive/
+pytest_html_report.html
+output.json
+.venv
+public/
+tests/index.html
+.coverage
+coverage/
+flake-report

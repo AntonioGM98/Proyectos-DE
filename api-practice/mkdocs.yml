@@ -1,0 +1,40 @@
+site_name: api-practice
+nav:
+  - Home: index.md
+  - Functional documentation: functional/index.md
+  - Technical documentation: technical/index.md
+  - Production & Maintenance: maintenance/index.md
+  - Tests Report: tests/index.html
+  - Architecture Tests Report: architecture-tests/index.html
+  - Code Coverage Report: coverage/index.html
+  - Code Style Report: flake-report/index.html
+
+repo_url: INSERT GITLAB PROJECT URL HERE!
+repo_name: INSERT GITLAB PROJECT URL HERE!
+
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - os.environ["LOG_LEVEL"] = "INFO"
+
+use_directory_urls: false
+theme:
+  name: material
+  favicon: !ENV IBDATA_DOCS_FAVICON
+  logo: !ENV IBDATA_DOCS_LOGO
+  features:
+    - navigation.tabs
+extra_css:
+  - !ENV IBDATA_DOCS_EXTRA_CSS
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.highlight
+  - footnotes
+  - pymdownx.details
+  - footnotes

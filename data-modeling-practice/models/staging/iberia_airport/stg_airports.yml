@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg_airports
+    columns:
+      - name: stn_code
+        test:
+          - unique
+          - not_null

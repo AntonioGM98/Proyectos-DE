@@ -1,0 +1,59 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+prometheus-client = "==0.9.0"
+starlette-exporter = "==0.5.0"
+fastapi = "==0.*"
+uvicorn = "==0.*"
+requests = "==2.25.1"
+dependency-injector = "==4.*"
+pydantic = {version = "~=1.10.7", extras = ["dotenv"]}
+structlog = "~=23.1.0"
+boto3 = "==1.28.29"
+
+[dev-packages]
+coverage = "==5.0.4"
+pytest-html-reporter = "==0.2.3"
+isort = "==5.5.1"
+black = "==22.*"
+flake8 = "==3.9.2"
+pydocstyle = "==5.1.1"
+mkdocs-material = "==6.2.5"
+mkdocstrings = "==0.20.0"
+mkdocs-with-pdf = "==0.8.3"
+livereload = "==2.6.3"
+mkdocs = "==1.4.2"
+mypy = "==0.910"
+httpx = "==0.23.*"
+pytest = "==6.2.5"
+locust = "==2.14.2"
+flake8-html = "==0.4.3"
+
+[requires]
+python_version = "3.8"
+
+[scripts]
+app = "uvicorn main:app --port 8000 --reload"
+tests = "python -m pytest app/test/ -s"
+tests-ci = "python -m pytest app/test/ -s --html-report=./tests/index.html"
+architecture-tests = "python -m pytest test/architecture/ -s"
+architecture-tests-ci = "python -m pytest test/architecture/ -s --html-report=./architecture-tests/index.html"
+stress-tests = "python -m locust -f test/stress/locustfile.py"
+pep8 = "python -m flake8"
+isort = "python -m isort --sp pyproject.toml --skip .venv ."
+black = "python -m black ."
+check-isort = "python -m isort --sp pyproject.toml --skip .venv . --check"
+check-black = "python -m black --check ."
+check-flake8 = "python -m flake8 --exclude=.venv/"
+check-types = "python -m mypy app"
+coverage-run = "python -m coverage run --source=app -m pytest"
+coverage-report = "python -m coverage report -m --omit=.venv"
+build-docs="python -m mkdocs build --site-dir public"
+build-linter-report="python flake8 --format=html --htmldir=flake-report --exit-zero"
+build-coverage-report="python -m coverage html --directory=coverage --omit=.venv"
+
+[pipenv]
+allow_prereleases = true

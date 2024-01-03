@@ -1,0 +1,20 @@
+{
+  "ES": [
+    "Madrid",
+    "Barcelona",
+    "Valencia",
+    "Sevilla"
+  ],
+  "IT": [
+    "Roma",
+    "Florencia",
+    "Milan",
+    "Venecia"
+  ],
+  "FR": [
+    "Paris",
+    "Lyon",
+    "Niza",
+    "Nantes"
+  ]
+}

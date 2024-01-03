@@ -1,0 +1,10 @@
+version: 2
+
+seeds:
+  - name: airports_database
+    description: diccionario de aeropuertos
+    columns:
+      - name: stn_code
+        tests:
+          - unique
+          - not_null

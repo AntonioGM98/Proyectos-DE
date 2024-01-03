@@ -1,0 +1,25 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+cachetools = "==4.1.0"
+starlette-exporter = "==0.7.0"
+boto3 = "==1.14.12"
+fastapi = "*"
+uvicorn = "*"
+httpcore = "==0.13.0"
+numpy = "*"
+requests = "*"
+moto = "*"
+
+[dev-packages]
+coverage = "==5.0.4"
+isort = "==5.5.1"
+pydocstyle = "==5.1.1"
+mkdocs-material = "==6.2.5"
+mkdocs-with-pdf = "==0.8.3"
+
+[requires]
+python_version = "3.8"

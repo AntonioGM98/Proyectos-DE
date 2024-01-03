@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "spark-practice"
+version = "0.1.0"
+description = ""
+authors = ["Ander Aramburu <ander.aramburu@nextdigital.es>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "~3.8"
+pyspark = "~3.3"
+pandas = "^2.0.3"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.25.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

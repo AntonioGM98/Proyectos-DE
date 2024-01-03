@@ -1,0 +1,11 @@
+target/
+dbt_packages/
+logs/
+.env
+*.secrets
+.user.yml
+.venv
+public/
+tmp/
+notes.txt
+.idea/

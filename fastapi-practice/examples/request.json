@@ -1,0 +1,133 @@
+{
+  "context": {
+    "locator": "UNHSM8",
+    "issueCurrency": "EUR",
+    "issueCountry": "ES",
+    "passengers": [
+      {
+        "id": "ADULT_01",
+        "name": "LUCAS",
+        "surname": "MAZARIEGOS",
+        "birthDate": "1991-07-04",
+        "passengerType": "ADULT"
+      },
+      {
+        "id": "CHILD_01",
+        "name": "MIGUEL",
+        "surname": "PAJARES",
+        "birthDate": "1998-01-02",
+        "passengerType": "ADULT"
+      }
+    ],
+    "segments": [
+      {
+        "id": "2",
+        "departureDate": "2023-01-12 19:05",
+        "arrivalDate": "2023-01-12 22:35",
+        "utcDepartureDate": "2023-01-12 19:05",
+        "utcArrivalDate": "2023-01-12 21:35",
+        "departureCity": "Madrid",
+        "arrivalCity": "Bilbao",
+        "time": "CKI",
+        "marketingFlight": {
+          "flightNumber": "7051",
+          "cabin": {
+            "cabinClass": {
+              "rbd": "O",
+              "type": "ECONOMY"
+            },
+            "carrier": "IB"
+          }
+        },
+        "operatingFlight": {
+          "flightNumber": "3173",
+          "cabin": {
+            "cabinClass": {
+              "rbd": "O",
+              "type": "ECONOMY"
+            },
+            "carrier": "IB"
+          }
+        },
+        "haul": "SH"
+      },
+      {
+        "id": "3",
+        "departureDate": "2023-01-13 19:05",
+        "arrivalDate": "2023-01-13 22:35",
+        "utcDepartureDate": "2023-01-13 19:05",
+        "utcArrivalDate": "2023-01-13 21:35",
+        "departureCity": "Bilbao",
+        "arrivalCity": "Madrid",
+        "time": "CKI",
+        "marketingFlight": {
+          "flightNumber": "7053",
+          "cabin": {
+            "cabinClass": {
+              "rbd": "O",
+              "type": "ECONOMY"
+            },
+            "carrier": "IB"
+          }
+        },
+        "operatingFlight": {
+          "flightNumber": "3175",
+          "cabin": {
+            "cabinClass": {
+              "rbd": "O",
+              "type": "ECONOMY"
+            },
+            "carrier": "IB"
+          }
+        },
+        "haul": "SH"
+      }
+    ],
+    "slices": [
+      {
+        "id": "MADBIO20230112190500",
+        "segmentIds": [
+          "2"
+        ]
+      }
+    ],
+    "bookingDate": "2022-12-28 00:34"
+  },
+  "request": {
+    "realm": "BOOKING",
+    "clientId": "iberia_web",
+    "items": [
+      {
+        "type": "PRIORITY_BOARDING",
+        "segments": [
+          {
+            "id": "2",
+            "passengers": [
+              "ADULT_01",
+              "CHILD_01"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "FLEXIBILITY_ON_DEMAND",
+        "passengers": [
+          {
+            "id": "ADULT_01",
+            "subtypes": [
+              "FLIGHT_CHANGE",
+              "VOUCHER_REFUND"
+            ]
+          },
+          {
+            "id": "CHILD_01",
+            "subtypes": [
+              "FLIGHT_CHANGE",
+              "VOUCHER_REFUND"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
